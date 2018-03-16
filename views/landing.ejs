@@ -1,0 +1,17 @@
+<% include partials/header%>
+<h1>Current Weather</h1>
+
+<table>
+	<tr>
+		<th>Temperature</th>
+		<th>Humidity</th>
+		<th>Windspeed</th>
+	</tr>
+	<tr>
+		<td><%=data.main.temp%></td>
+		<td><%=data.main.humidity%></td>
+		<td><%=data.wind.speed%></td>
+	</tr>
+</table>
+
+<%include partials/footer%>
