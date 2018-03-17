@@ -1,19 +1,25 @@
 <% include partials/header%>
-<h1>Current Weather</h1>
+<div class="app-body">
+	<h1>Current Weather</h1>
+	<table>
+		<tr>
+			<td>Temperature</td>
+			<td><span id="temp"></span> &deg;<span id="tempUnit">C</span></td>
+		</tr>
+		<tr>
+			<td>Humidity</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Windspeed</td>
+			<td><span id="windspeed"></span><span id="speedUnit"> kph</span></td>
+		</tr>
+		<tr>
+			<td>Cloud Cover</td>
+			<td></td>
+		</tr>
+	</table>
+</div>
 
-<table>
-	<tr>
-		<th>Temperature</th>
-		<th>Humidity</th>
-		<th>Windspeed</th>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
-
-<div id="coords"></div>
 
 <%include partials/footer%>
