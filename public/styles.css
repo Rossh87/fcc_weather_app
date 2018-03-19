@@ -9,16 +9,6 @@ body {
 	background-repeat:no-repeat;
 }
 
-@media screen and (max-width: 800px) {
-	body {
-		font-family: "Mina", sans-serif;
-		background-image:url("weather_app_imgs/winter.jpeg");
-		background-repeat:no-repeat;
-		background-size:cover;
-		background-position: center;
-	}
-}
-
 table {
 	border:2px solid black;
 	margin:auto;
@@ -41,8 +31,9 @@ h1 {
 	float:left;
 	font-size:1rem;
 	background:rgba(30, 30, 30, 0.2);
-	height:25%;
+	height:800px;
 	margin:1% 0 0 1%;
 	border-radius:5px;
 	padding:10px;
+	background-size:cover;
 }

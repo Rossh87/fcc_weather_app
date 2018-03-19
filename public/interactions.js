@@ -1,21 +1,7 @@
 $(document).ready(function(){
 
-	function changeImg(){
 		let imgs = ['url("weather_app_imgs/spring.jpeg")\;', 'url("weather_app_imgs/summer.jpeg")\;', 'url("weather_app_imgs/autumn.jpg")\;', 'url("weather_app_imgs/winter.jpeg")\;'];
-		$("body").css("background-image", imgs[imgCounter]);
-		console.log(imgs[imgCounter])
-		if (imgCounter == 3){
-			imgCounter = 0;
-		} else {
-			imgCounter++;
-		}
-	}
 
-	var imgCounter = 0;
-
-	setInterval(function(){
-		changeImg()		
-	}, 10000);
 
 	if ("geolocation" in navigator){
 		navigator.geolocation.getCurrentPosition(function(res){
@@ -31,14 +17,24 @@ $(document).ready(function(){
 				url: "https://fcc-weather-api.glitch.me/api/current?lon="+longitude+"&lat="+latitude,
 				method: "GET",
 				success: function (data){
-					let fahrenheit = data.main.temp*1.8 + 32;
+					let fahrenheit = (data.main.temp*1.8 + 32).toFixed(2);
 					let mph = (data.wind.speed/1.61).toFixed(2);
 					let metric = true;
 					$(insertTemp).text(data.main.temp);
+					console.log(data.main.temp);
 					$(insertWindSpeed).text(data.wind.speed);
 					$(allDataFields[3]).text(data.main.humidity + " %");
 					$(insertWindSpeed).text(data.wind.speed);
 					$(allDataFields[7]).text(data.weather[0].description);
+					if (Number(data.main.temp) < 0){
+						widgetBody.style.backgroundImage = 'url("weather_app_imgs/winter.jpeg")';
+					} else if (data.main.temp < 13){
+						widgetBody.style.backgroundImage = 'url("weather_app_imgs/autumn.jpg")';
+					} else if (data.main.temp < 24){
+						widgetBody.style.backgroundImage = 'url("weather_app_imgs/spring.jpeg")';
+					} else {
+						widgetBody.style.backgroundImage = 'url("weather_app_imgs/summer.jpeg")';
+					}
 
 					widgetBody.addEventListener("click", function(e){
 						if (metric){
